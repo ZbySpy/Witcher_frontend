@@ -1,0 +1,62 @@
+body{
+  background-color: #000000!important;
+}
+
+#root {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    margin: 1rem;
+    border: 1px solid gray;
+  }
+  
+  img {
+    border-radius: 8px;
+    padding: 5px;
+    border: 1px solid #ddd;
+  }
+
+  .card-body{
+    color: white;
+  }
+
+  .card-title{
+    text-align: center;
+    font-size: 25px;
+    color: rgb(201, 192, 192);
+  }
+
+  .card{
+    background-color: rgb(75, 58, 58);
+  }
+
+  .card:hover{
+    cursor: pointer;
+  }
+
+  .card-title:hover{
+    color: white;
+  }
+  
+  a {
+    text-decoration: none!important;
+  }
+
+  @media screen and (min-width: 600px) {
+    .card {
+      flex: 1 1 calc(50% - 2rem);
+    }
+  }
+  
+  @media screen and (min-width: 900px) {
+    .card {
+      flex: 1 1 calc(33% - 2rem);
+    }
+  }

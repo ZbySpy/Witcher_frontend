@@ -1,0 +1,70 @@
+body{
+    background-color: #000000!important;
+  }
+  
+  #root {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .card {
+      border: 1px solid gray;
+      background-color: rgb(75, 58, 58);
+      max-width: 50%;
+      margin: 5rem auto; 
+      float: none; 
+      margin-bottom: 10px; 
+    }
+    
+    img {
+      border-radius: 8px;
+      padding: 5px;
+      border: 1px solid #ddd;
+    }
+  
+    .card-body{
+      color: white;
+    }
+  
+    .card-title{
+      text-align: center;
+      font-size: 25px;
+      color: rgb(201, 192, 192);
+    }
+  
+    
+    a {
+      text-decoration: none!important;
+    }
+
+    button{
+      margin-left: 15px!important;
+      background-color: rgb(75, 58, 58)!important;
+      border-color: rgb(75,58,58)!important;
+    }
+    
+    .btn-danger{
+        width: 15%;
+        background-color: rgb(207, 35, 35)!important;
+    }
+    .btn-danger:hover{
+      background-color: rgb(155, 31, 31)!important;
+    }
+  
+    @media screen and (min-width: 600px) {
+      .card {
+        flex: 1 1 calc(50% - 2rem);
+      }
+    }
+    
+    @media screen and (min-width: 900px) {
+      .card {
+        flex: 1 1 calc(33% - 2rem);
+      }
+    }
+  

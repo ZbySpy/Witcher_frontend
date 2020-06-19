@@ -1,0 +1,15 @@
+body{
+    background-image: url("https://i1.wp.com/livewallpaper.info/wp-content/uploads/2017/08/The-Witcher-by-PatrickBrown-deviantart-com-on-deviantART-wallpaper-wp4409991.jpg");
+    color: white;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.text{
+    margin-top: 20rem;
+    text-align: center;
+    color: white;
+}
