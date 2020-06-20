@@ -7,24 +7,23 @@ const myBody = document.getElementById('body');
 
 const newDesc = document.getElementById('description');
 const newName = document.getElementById('name');
-const newType = document.getElementById('type');
-const newAcqu = document.getElementById('acquisition');
-const newLocalization = document.getElementById('localization');
+const newGender = document.getElementById('gender');
+const newRace = document.getElementById('race');
+const newNatio = document.getElementById('nationality');
 
-const addAlchemy = document.getElementById('addAL');
-
+const addCharacter = document.getElementById('addCH');
  
 function addElement(){
-  fetch('https://witcher-project.herokuapp.com/admin/alchemies/', {
+  fetch('https://witcher-project.herokuapp.com/admin/characters/', {
     method:"POST",
     body: JSON.stringify({name: newName.value,
-      localization: newLocalization.value,
+      nationality: newNatio.value,
       description: newDesc.value,
-      type: newType.value,
-      acquisition: newAcqu.value,
+      gender: newGender.value,
+      race: newRace.value,
        })
       })
       
     }
   
-    addAlchemy.addEventListener('click', addElement);
+addCharacter.addEventListener('click', addElement);

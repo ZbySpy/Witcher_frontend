@@ -5,46 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="style/style_bestiary.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <title>Characters</title>
-</head>
-<body id='body'>
-
-    <form action="https://witcher-project.herokuapp.com/admin/characters" method="post" id="addForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="gender">Gender:</label>
-        <input type="text" id="gender" name="gender"><br><br>
-        <label for="nationality">Natoniality:</label>
-        <input type="text" id="nationality" name="nationality"><br><br>
-        <label for="race">Race:</label>
-        <input type="text" id="race" name="race"><br><br>
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description"><br><br>
-        <input type="submit" value="Submit">
-      </form>
-      <script>
-        window.open('http://www.yoururl.com', '_blank');
-        </script>
-      <p id="blank"></p>
-</body>
-
-<script src="scripts/add_character.js"></script>
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en" id="html">
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="style/style_bestiary.css">
+    <link rel="stylesheet" href="style/style-characters.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -53,7 +14,7 @@
 </head>
 <body id='body'>
 
-  <div style="text-align: center; color: white;"> <h1>Add a new alchemy!</h1><br><br>
+  <div style="text-align: center; color: white;"> <h1>Add a new character!</h1><br><br>
 
 <div class="d-flex justify-content-center" >
   <div> </div>
@@ -64,15 +25,15 @@
     </div>
     <div class="form-group">
       <label for="gender">Gender: </label>
-      <input type="text" class="form-control" id="gender" placeholder="Type..">
+      <input type="text" class="form-control" id="gender" placeholder="Gender..">
     </div>    
     <div class="form-group">
       <label for="nationality">Natoniality: </label>
-      <input type="text" class="form-control" id="nationality" placeholder="Acquisition..">
+      <input type="text" class="form-control" id="nationality" placeholder="Nationality..">
     </div>
     <div class="form-group">
       <label for="race">Race: </label>
-      <input type="text" class="form-control" id="race" placeholder="Localization..">
+      <input type="text" class="form-control" id="race" placeholder="Race..">
     </div>
     <div class="form-group">
       <label for="description">Description: </label><br>
@@ -87,6 +48,6 @@
 </div>
 </body>
 
-<script src="scripts/add_alchemy.js"></script>
+<script src="scripts/add_character.js"></script>
 </html>
 
