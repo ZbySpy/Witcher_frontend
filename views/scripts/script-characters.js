@@ -1,4 +1,3 @@
-//const monsterButton = document.getElementById('monsterButton');
 const desc = document.getElementById('desc');
 const myContainer = document.getElementById('div_container');
 const myDiv = document.getElementById('myDiv');
@@ -57,26 +56,11 @@ const getCharacters = async () => {
   });
   deleteFunc();
 }
-
-// function deleteBody(){
-//   myBody.removeChild(myContainer);
-//   const newBody = document.createElement('div');
-//   newBody.id = 'div_container';
-//   myBody.appendChild(newBody);
-// };
-
-
-// monsterButton.addEventListener('click', getMonsters);
 OneCharacterButton.addEventListener('click', getCharacters);
 
 function deleteFunc(){
 
   const del = document.getElementsByClassName('btn btn-danger deleteAction');
-  // del.forEach(element => {
-  //   element.addEventListener('click', ()=>{
-  //     deleteElement(element.name);
-  //   });
-  // });
   for (let index = 0; index < del.length; index++) {
     console.log(del[index]);
     del[index].addEventListener('click', ()=>{

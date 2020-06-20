@@ -14,6 +14,10 @@
 </head>
 <body id='body'>
 
+  <div style="text-align: center; color: white;"> <h1>Add a new monster to the bestiary!</h1><br><br>
+
+<div class="d-flex justify-content-center" >
+  <div> </div>
   <form style="color: white;">
     <div class="form-group">
       <label for="name">Name:</label>
@@ -32,17 +36,20 @@
       <input type="text" class="form-control" id="vunerableTo" placeholder="Vunerable to..">
     </div>
     <div class="form-group">
-      <label for="description">Description: </label>
-      <input type="text" class="form-control" id="description" placeholder="Description..">
-    </div>
+      <label for="loot">Loot: </label>
+      <input type="text" class="form-control" id="loot" placeholder="Description.." >
     </div>
     <div class="form-group">
-      <label for="loot">Loot: </label>
-      <input type="text" class="form-control" id="loot" placeholder="Description..">
+      <label for="description">Description: </label><br>
+      <textarea name="text" rows="10" cols="40" wrap="soft" id="description" placeholder="Description.." style="color: black;"></textarea>
     </div>
     <button id="addMon" class="btn btn-primary btn-lg">Add</button>
+    
+    <a href="monster.html">
+    <button id="bM" class="btn btn-primary btn-lg">Back to bestiary</button>
+    </a>
   </form>
-  
+</div>
 
         
 </body>

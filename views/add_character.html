@@ -33,5 +33,60 @@
       <p id="blank"></p>
 </body>
 
-<!-- <script src="scripts/add_script.js"></script> -->
+<script src="scripts/add_character.js"></script>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style/style_bestiary.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>Countries</title>
+</head>
+<body id='body'>
+
+  <div style="text-align: center; color: white;"> <h1>Add a new alchemy!</h1><br><br>
+
+<div class="d-flex justify-content-center" >
+  <div> </div>
+  <form style="color: white;">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name..">
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender: </label>
+      <input type="text" class="form-control" id="gender" placeholder="Type..">
+    </div>    
+    <div class="form-group">
+      <label for="nationality">Natoniality: </label>
+      <input type="text" class="form-control" id="nationality" placeholder="Acquisition..">
+    </div>
+    <div class="form-group">
+      <label for="race">Race: </label>
+      <input type="text" class="form-control" id="race" placeholder="Localization..">
+    </div>
+    <div class="form-group">
+      <label for="description">Description: </label><br>
+      <textarea name="text" rows="10" cols="40" wrap="soft" id="description" placeholder="Description.." style="color: black;"></textarea>
+    </div>
+    <button id="addCH" class="btn btn-primary btn-lg">Add</button>
+    
+    <a href="country.html">
+    <button id="bCH" class="btn btn-primary btn-lg">Back to characters</button>
+    </a>
+  </form>
+</div>
+</body>
+
+<script src="scripts/add_alchemy.js"></script>
+</html>
+

@@ -14,24 +14,39 @@
 </head>
 <body id='body'>
 
-    <form action="https://witcher-project.herokuapp.com/admin/countries" method="post" id="addForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="capital">Capital:</label>
-        <input type="text" id="capital" name="capital"><br><br>
-        <label for="flag">Flag:</label>
-        <input type="text" id="flag" name="flag"><br><br>
-        <label for="ruler">Ruler: </label>
-        <input type="text" id="ruler" name="ruler"><br><br>
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description"><br><br>
-        <input type="submit" value="Submit">
-      </form>
-      <script>
-        window.open('http://www.yoururl.com', '_blank');
-        </script>
-      <p id="blank"></p>
+  <div style="text-align: center; color: white;"> <h1>Add a new country!</h1><br><br>
+
+<div class="d-flex justify-content-center" >
+  <div> </div>
+  <form style="color: white;">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name..">
+    </div>
+    <div class="form-group">
+      <label for="capital">Capital: </label>
+      <input type="text" class="form-control" id="capital" placeholder="Capital..">
+    </div>    
+    <div class="form-group">
+      <label for="flag">Flag: </label>
+      <input type="text" class="form-control" id="flag" placeholder="Flag..">
+    </div>
+    <div class="form-group">
+      <label for="ruler">Ruler: </label>
+      <input type="text" class="form-control" id="ruler" placeholder="Ruler..">
+    </div>
+    <div class="form-group">
+      <label for="description">Description: </label><br>
+      <textarea name="text" rows="10" cols="40" wrap="soft" id="description" placeholder="Description.." style="color: black;"></textarea>
+    </div>
+    <button id="addCN" class="btn btn-primary btn-lg">Add</button>
+    
+    <a href="country.html">
+    <button id="bM" class="btn btn-primary btn-lg">Back to countries</button>
+    </a>
+  </form>
+</div>
 </body>
 
-<!-- <script src="scripts/add_alchemies.js"></script> -->
+<script src="scripts/add_country.js"></script>
 </html>

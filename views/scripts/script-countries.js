@@ -1,4 +1,3 @@
-//const monsterButton = document.getElementById('monsterButton');
 const desc = document.getElementById('desc');
 const myContainer = document.getElementById('div_container');
 const myDiv = document.getElementById('myDiv');
@@ -58,25 +57,11 @@ const getCountries = async () => {
   deleteFunc();
 }
 
-// function deleteBody(){
-//   myBody.removeChild(myContainer);
-//   const newBody = document.createElement('div');
-//   newBody.id = 'div_container';
-//   myBody.appendChild(newBody);
-// };
-
-
-// monsterButton.addEventListener('click', getMonsters);
-OneAlchemyButton.addEventListener('click', getCountries);
+OneCountryButton.addEventListener('click', getCountries);
 
 function deleteFunc(){
 
   const del = document.getElementsByClassName('btn btn-danger deleteAction');
-  // del.forEach(element => {
-  //   element.addEventListener('click', ()=>{
-  //     deleteElement(element.name);
-  //   });
-  // });
   for (let index = 0; index < del.length; index++) {
     console.log(del[index]);
     del[index].addEventListener('click', ()=>{
@@ -89,5 +74,21 @@ function deleteElement(countryName){
   fetch('https://witcher-project.herokuapp.com/admin/countries/' + countryName, {
     method: 'DELETE'
   });
-  setTimeout(getMonsters,500);
+  setTimeout(getCountries,500);
+}
+
+
+function editFunc(){
+  const del = document.getElementsByClassName('btn btn-danger editAction');
+  // del.forEach(element => {
+  //   element.addEventListener('click', ()=>{
+  //     deleteElement(element.name);
+  //   });
+  // });
+  for (let index = 0; index < del.length; index++) {
+    console.log(del[index]);
+    del[index].addEventListener('click', ()=>{
+          deleteElement(del[index].value);
+        });
+  }
 }
