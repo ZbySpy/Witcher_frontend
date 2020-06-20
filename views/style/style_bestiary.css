@@ -55,6 +55,14 @@ body{
     .btn-danger:hover{
       background-color: rgb(155, 31, 31)!important;
     }
+
+    .btn-info{
+      width: 15%;
+      background-color: rgb(207, 138, 35)!important;
+  }
+  .btn-info:hover{
+    background-color: rgb(139, 96, 32)!important;
+  }
   
     @media screen and (min-width: 600px) {
       .card {

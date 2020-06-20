@@ -10,20 +10,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <title>Alchemy</title>
+    <title>Monsters</title>
 </head>
 <body id='body'>
 
-    <input class="form-control " type="text" placeholder="Insert your monster..">
 
-    <div class="d-flex justify-content-center">
-    <button type="button" class="btn btn-primary btn-lg " id="alchemyLook">Find alchemy</button>
-    <button type="button" class="btn btn-primary btn-lg" id="alchemyButton">Generate alchemy</button>
+        <input type="text" name="name" id="monster_name">
+        <button type="submit" class="btn btn-primary btn-lg" id="OneMonsterButton">Find monster</button>
+        
+        <a href="add_monster.html">
+        <button type="submit" class="btn btn-primary btn-lg">Add monster </button>
+        </a>
+
+        <!-- <button type="button" class="btn btn-primary btn-lg" id="monsterButton">Generate bestiary</button> -->
     </div>
-
-    
     <div id="div_container"></div>
+    
 </body>
 
-<script src="script.js"></script>
+<script src="scripts/script.js"></script>
 </html>

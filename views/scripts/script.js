@@ -29,6 +29,7 @@ const getMonsters = async () => {
     const loot = document.createElement('div');
     const vunerableTo = document.createElement('div');
     const deleteButton = document.createElement('button');
+    const editButton = document.createElement('button');
 
     myContainer.appendChild(newElem);
 
@@ -39,9 +40,14 @@ const getMonsters = async () => {
     localization.className = 'list-group-item';
     loot.className = 'list-group-item';
     vunerableTo.className = 'list-group-item';
+
     deleteButton.className = 'btn btn-danger deleteAction';
     deleteButton.innerHTML = "Delete";
     deleteButton.value = element.name;
+
+    editButton.className = 'btn btn-info editAction';
+    editButton.innerHTML = "Edit";
+    editButton.value = element.name;
 
     name.innerHTML = element.name;
     description.innerHTML = "<b>Description: </b>"+element.description;
@@ -57,6 +63,7 @@ const getMonsters = async () => {
     newElem.appendChild(vunerableTo);
     newElem.appendChild(loot);
     newElem.appendChild(deleteButton);
+    newElem.appendChild(editButton);
   });
   deleteFunc();
 }
@@ -73,7 +80,6 @@ const getMonsters = async () => {
 OneMonsterButton.addEventListener('click', getMonsters);
 
 function deleteFunc(){
-
   const del = document.getElementsByClassName('btn btn-danger deleteAction');
   // del.forEach(element => {
   //   element.addEventListener('click', ()=>{
@@ -93,4 +99,19 @@ function deleteElement(monsterName){
     method: 'DELETE'
   });
   setTimeout(getMonsters,500);
+}
+
+function editFunc(){
+  const del = document.getElementsByClassName('btn btn-info editAction');
+  // del.forEach(element => {
+  //   element.addEventListener('click', ()=>{
+  //     deleteElement(element.name);
+  //   });
+  // });
+  for (let index = 0; index < del.length; index++) {
+    console.log(del[index]);
+    del[index].addEventListener('click', ()=>{
+          deleteElement(del[index].value);
+        });
+  }
 }
