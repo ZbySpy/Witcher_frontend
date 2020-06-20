@@ -1,4 +1,5 @@
 //const monsterButton = document.getElementById('monsterButton');
+//import { editFunction } from './edit_monster';
 const desc = document.getElementById('desc');
 const myContainer = document.getElementById('div_container');
 const myDiv = document.getElementById('myDiv');
@@ -66,6 +67,7 @@ const getMonsters = async () => {
     newElem.appendChild(editButton);
   });
   deleteFunc();
+  editFunction();
 }
 
 // function deleteBody(){
@@ -101,17 +103,65 @@ function deleteElement(monsterName){
   setTimeout(getMonsters,500);
 }
 
-function editFunc(){
-  const del = document.getElementsByClassName('btn btn-info editAction');
-  // del.forEach(element => {
-  //   element.addEventListener('click', ()=>{
-  //     deleteElement(element.name);
-  //   });
-  // });
-  for (let index = 0; index < del.length; index++) {
-    console.log(del[index]);
-    del[index].addEventListener('click', ()=>{
-          deleteElement(del[index].value);
-        });
-  }
+//const myContainer = document.getElementById('div_container');
+
+
+
+function editFunction(){
+    const editButton = document.getElementsByClassName('btn btn-info editAction');
+    for (let index = 0; index < editButton.length; index++) {
+        //console.log(editButton[index].value);
+        editButton[index].addEventListener('click', ()=>{
+            generateForm(editButton[index].value);
+            });
+      }
+}
+
+function generateForm(monsterName){
+    myContainer.innerHTML = '';
+    var newName = document.createElement('input');
+    var newClass = document.createElement('input');
+    var newDesc = document.createElement('input');
+    var newLocaliz = document.createElement('input');
+    var newLoot = document.createElement('input');
+    var newVun = document.createElement('input');
+
+    newName.placeholder = 'name';
+    newName.value = monsterName;
+    newClass.placeholder = 'class';
+    newDesc.placeholder = 'description';
+    newLocaliz.placeholder = 'localization';
+    newLoot.placeholder = 'loot';
+    newVun.placeholder = 'vunerable to';
+
+    myContainer.appendChild(newName);
+    myContainer.appendChild(newClass);
+    myContainer.appendChild(newDesc);
+    myContainer.appendChild(newLocaliz);
+    myContainer.appendChild(newLoot);
+    myContainer.appendChild(newVun);
+
+    const submitEditButton = document.createElement('button'); 
+    submitEditButton.innerHTML = 'Edit';
+    submitEditButton.id = 'submitEditButton';
+    myContainer.appendChild(submitEditButton);
+
+    submitEditButton.addEventListener('click', () => {
+      editMonster(monsterName, newName, newClass, newDesc, newLocaliz, newLoot, newVun);
+  });
+}
+
+function editMonster(monsterName, newName, newClass, newDesc, newLocaliz, newLoot, newVun){
+    fetch('https://witcher-project.herokuapp.com/admin/change/monsters/' + monsterName, {
+    method: 'POST',
+    body: JSON.stringify({name: newName.value,
+        class: newClass.value,
+        description: newDesc.value,
+        localization: newLocaliz.value,
+        loot: newLoot.value,
+        vunerableTo: newVun.value
+        })
+  });
+  setTimeout(getMonsters,500);
+  //window.location.replace("monster.html");
 }
