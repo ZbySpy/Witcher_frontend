@@ -1,6 +1,11 @@
 body{
   background-color: #000000!important;
-  background-image: url('https://wallup.net/wp-content/uploads/2016/05/27/279981-The_Witcher_3_Wild_Hunt-Skellige.jpg')!important;
+  /* background-image: url('https://wallup.net/wp-content/uploads/2016/05/27/279981-The_Witcher_3_Wild_Hunt-Skellige.jpg')!important; */
+  background: url('https://wallup.net/wp-content/uploads/2016/05/27/279981-The_Witcher_3_Wild_Hunt-Skellige.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #root {

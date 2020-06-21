@@ -1,5 +1,10 @@
 body{
-    background-image: url("https://i1.wp.com/livewallpaper.info/wp-content/uploads/2017/08/The-Witcher-by-PatrickBrown-deviantart-com-on-deviantART-wallpaper-wp4409991.jpg");
+    /* background-image: url("https://i1.wp.com/livewallpaper.info/wp-content/uploads/2017/08/The-Witcher-by-PatrickBrown-deviantart-com-on-deviantART-wallpaper-wp4409991.jpg"); */
+    background: url('https://i1.wp.com/livewallpaper.info/wp-content/uploads/2017/08/The-Witcher-by-PatrickBrown-deviantart-com-on-deviantART-wallpaper-wp4409991.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     color: white;
 }
 

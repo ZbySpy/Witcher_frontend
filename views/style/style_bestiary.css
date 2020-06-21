@@ -1,6 +1,11 @@
 body{
     background-color: #000000!important;
-    background-image: url('https://wallpapermemory.com/uploads/729/the-witcher-3-wild-hunt-background-hd-1600x768-18170.jpg')!important;
+    /* background-image: url('https://wallpapermemory.com/uploads/729/the-witcher-3-wild-hunt-background-hd-1600x768-18170.jpg')!important; */
+    background: url('https://wallpapermemory.com/uploads/729/the-witcher-3-wild-hunt-background-hd-1600x768-18170.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     background-attachment: fixed;
   }
   
@@ -27,6 +32,8 @@ body{
       border-radius: 8px;
       padding: 5px;
       border: 1px solid #ddd;
+      max-width: 100%;
+      height: auto;
     }
   
     .card-body{
