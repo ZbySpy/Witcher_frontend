@@ -27,6 +27,7 @@ const getCountries = async () => {
     const flag = document.createElement('div');
     const ruler = document.createElement('div');
     const deleteButton = document.createElement('button');
+    const editButton = document.createElement('button');
 
     myContainer.appendChild(newElem);
 
@@ -41,6 +42,10 @@ const getCountries = async () => {
     deleteButton.innerHTML = "Delete";
     deleteButton.value = element.name;
 
+    editButton.className = 'btn btn-info editAction';
+    editButton.innerHTML = "Edit";
+    editButton.value = element.name;
+
     name.innerHTML = element.name;
     description.innerHTML = "<b>Description: </b>"+element.description;
     capital.innerHTML = "<b>Class: </b>"+element.capital;
@@ -53,8 +58,11 @@ const getCountries = async () => {
     newElem.appendChild(flag);
     newElem.appendChild(ruler);
     newElem.appendChild(deleteButton);
+    newElem.appendChild(editButton);
+
   });
   deleteFunc();
+  editFunction();
 }
 
 OneCountryButton.addEventListener('click', getCountries);
@@ -77,18 +85,55 @@ function deleteElement(countryName){
   setTimeout(getCountries,500);
 }
 
+function editFunction(){
+  const editButton = document.getElementsByClassName('btn btn-info editAction');
+  for (let index = 0; index < editButton.length; index++) {
+      editButton[index].addEventListener('click', ()=>{
+          generateForm(editButton[index].value);
+          });
+    }
+}
 
-function editFunc(){
-  const del = document.getElementsByClassName('btn btn-danger editAction');
-  // del.forEach(element => {
-  //   element.addEventListener('click', ()=>{
-  //     deleteElement(element.name);
-  //   });
-  // });
-  for (let index = 0; index < del.length; index++) {
-    console.log(del[index]);
-    del[index].addEventListener('click', ()=>{
-          deleteElement(del[index].value);
-        });
-  }
+function generateForm(countryName){
+  myContainer.innerHTML = '';
+  var newName = document.createElement('input');
+  var newRuler = document.createElement('input');
+  var newDesc = document.createElement('input');
+  var newCapital = document.createElement('input');
+  var newFlag = document.createElement('input');
+
+  newName.placeholder = 'name';
+  newName.value = countryName;
+  newRuler.placeholder = 'ruler';
+  newDesc.placeholder = 'description';
+  newCapital.placeholder = 'capital';
+  newFlag.placeholder = 'flag';
+
+  myContainer.appendChild(newName);
+  myContainer.appendChild(newDesc);
+  myContainer.appendChild(newCapital);
+  myContainer.appendChild(newFlag);
+  myContainer.appendChild(newRuler);
+
+  const submitEditButton = document.createElement('button');
+  submitEditButton.innerHTML = 'Edit';
+  submitEditButton.id = 'submitEditButton';
+  myContainer.appendChild(submitEditButton);
+
+  submitEditButton.addEventListener('click', () => {
+    editCountries(countryName, newName, newRuler, newDesc, newCapital, newFlag);
+});
+}
+
+function editCountries(countryName, newName, newRuler, newDesc, newCapital, newFlag){
+  fetch('https://witcher-project.herokuapp.com/admin/change/countries/' + countryName, {
+  method: 'POST',
+  body: JSON.stringify({name: newName.value,
+      description: newDesc.value,
+      ruler: newRuler.value,
+      capital: newCapital.value,
+      flag: newFlag.value
+      })
+});
+setTimeout(getCountries,500);
 }

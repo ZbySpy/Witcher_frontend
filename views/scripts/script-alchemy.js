@@ -28,6 +28,7 @@ const getAlchemy = async () => {
     const loot = document.createElement('div');
     const acquisition = document.createElement('div');
     const deleteButton = document.createElement('button');
+    const editButton = document.createElement('button');
 
     myContainer.appendChild(newElem);
 
@@ -38,9 +39,14 @@ const getAlchemy = async () => {
     localization.className = 'list-group-item';
     loot.className = 'list-group-item';
     acquisition.className = 'list-group-item';
+    
     deleteButton.className = 'btn btn-danger deleteAction';
     deleteButton.innerHTML = "Delete";
     deleteButton.value = element.name;
+
+    editButton.className = 'btn btn-info editAction';
+    editButton.innerHTML = "Edit";
+    editButton.value = element.name;
 
     name.innerHTML = element.name;
     description.innerHTML = "<b>Description: </b>"+element.description;
@@ -56,8 +62,10 @@ const getAlchemy = async () => {
     newElem.appendChild(acquisition);
     newElem.appendChild(loot);
     newElem.appendChild(deleteButton);
+    newElem.appendChild(editButton);
   });
   deleteFunc();
+  editFunction();
 }
 
 OneAlchemyButton.addEventListener('click', getAlchemy);
@@ -78,4 +86,63 @@ function deleteElement(alchemyName){
     method: 'DELETE'
   });
   setTimeout(getAlchemy,500);
+}
+
+
+function editFunction(){
+  const editButton = document.getElementsByClassName('btn btn-info editAction');
+  for (let index = 0; index < editButton.length; index++) {
+      editButton[index].addEventListener('click', ()=>{
+          generateForm(editButton[index].value);
+          });
+    }
+}
+
+function generateForm(alchemyName){
+  myContainer.innerHTML = '';
+  var newName = document.createElement('input');
+  var newAcqu = document.createElement('input');
+  var newDesc = document.createElement('input');
+  var newLocali = document.createElement('input');
+  var newLoot = document.createElement('input');
+  
+  var newCarddo = document.createElement('div');
+
+  newName.placeholder = 'name';
+  newName.value = alchemyName;
+  newAcqu.placeholder = 'acquisition';
+  newDesc.placeholder = 'description';
+  newLocali.placeholder = 'localization';
+  newLoot.placeholder = 'loot';
+  newCarddo.class ='card-body';
+
+  
+  myContainer.appendChild(newCarddo);
+  myContainer.appendChild(newName);
+  myContainer.appendChild(newAcqu);
+  myContainer.appendChild(newDesc);
+  myContainer.appendChild(newLocali);
+  myContainer.appendChild(newLoot);
+
+  const submitEditButton = document.createElement('button');
+  submitEditButton.innerHTML = 'Edit';
+  submitEditButton.id = 'submitEditButton';
+  myContainer.appendChild(submitEditButton);
+
+  submitEditButton.addEventListener('click', () => {
+    editAlchemies(alchemyName, newName, newAcqu, newDesc, newLocali, newLoot);
+});
+}
+
+function editAlchemies(alchemyName, newName, newAcqu, newDesc, newLocali, newLoot){
+  fetch('https://witcher-project.herokuapp.com/admin/change/alchemies/' + alchemyName, {
+  method: 'POST',
+  body: JSON.stringify({name: newName.value,
+      description: newDesc.value,
+      acquisition: newAcqu.value,
+      localization: newLocali.value,
+      loot: newLoot.value
+      })
+});
+setTimeout(getAlchemy,500);
 }

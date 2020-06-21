@@ -24,6 +24,7 @@ function addElement(){
       acquisition: newAcqu.value,
        })
       })
+      setTimeout(500);
       
     }
   

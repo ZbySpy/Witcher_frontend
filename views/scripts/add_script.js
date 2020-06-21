@@ -1,4 +1,3 @@
-//const monsterButton = document.getElementById('monsterButton');
 const desc = document.getElementById('desc');
 const myContainer = document.getElementById('div_container');
 const myDiv = document.getElementById('myDiv');
@@ -76,25 +75,10 @@ const getMonsters = async () => {
   deleteFunc();
 }
  
-// function deleteBody(){
-//   myBody.removeChild(myContainer);
-//   const newBody = document.createElement('div');
-//   newBody.id = 'div_container';
-//   myBody.appendChild(newBody);
-// };
-
-
-// monsterButton.addEventListener('click', getMonsters);
-// OneMonsterButton.addEventListener('click', getMonsters);
-
 function deleteFunc(){
 
   const del = document.getElementsByClassName('btn btn-danger deleteAction');
-  // del.forEach(element => {
-  //   element.addEventListener('click', ()=>{
-  //     deleteElement(element.name);
-  //   });
-  // });
+
   for (let index = 0; index < del.length; index++) {
     console.log(del[index]);
     del[index].addEventListener('click', ()=>{
@@ -112,11 +96,7 @@ function deleteElement(monsterName){
 
 function editFunc(){
   const del = document.getElementsByClassName('btn btn-danger editAction');
-  // del.forEach(element => {
-  //   element.addEventListener('click', ()=>{
-  //     deleteElement(element.name);
-  //   });
-  // });
+
   for (let index = 0; index < del.length; index++) {
     console.log(del[index]);
     del[index].addEventListener('click', ()=>{
@@ -137,15 +117,7 @@ function addElement(){
       vunerableTo: newVun.value
        })
       })
-      // .then(response => response.json())
-      // .then(data => {
-      //   console.log('Success:', data);
-      // })
-      // .catch((error) => {
-      //   console.error('Error:', error);
-      // })
+      setTimeout(500);
     }
   
-   
-
 AddMon.addEventListener('click', addElement);

@@ -1,3 +1,4 @@
+//const monsterButton = document.getElementById('monsterButton');
 const desc = document.getElementById('desc');
 const myContainer = document.getElementById('div_container');
 const myDiv = document.getElementById('myDiv');
@@ -10,7 +11,6 @@ const newName = document.getElementById('name');
 const newFlag = document.getElementById('flag');
 const newRuler = document.getElementById('ruler');
 const newCapital = document.getElementById('capital');
-
 const addCountry = document.getElementById('addCN');
 
  
@@ -24,6 +24,7 @@ function addElement(){
       ruler: newRuler.value,
        })
       })
+      setTimeout(500);
     }
   
     addCountry.addEventListener('click', addElement);

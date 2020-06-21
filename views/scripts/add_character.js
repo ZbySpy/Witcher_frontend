@@ -23,6 +23,7 @@ function addElement(){
       race: newRace.value,
        })
       })
+      setTimeout(500);
       
     }
   

@@ -27,6 +27,7 @@ const getCharacters = async () => {
     const nationality = document.createElement('div');
     const race = document.createElement('div');
     const deleteButton = document.createElement('button');
+    const editButton = document.createElement('button');
 
     myContainer.appendChild(newElem);
 
@@ -40,6 +41,10 @@ const getCharacters = async () => {
     deleteButton.className = 'btn btn-danger deleteAction';
     deleteButton.innerHTML = "Delete";
     deleteButton.value = element.name;
+    
+    editButton.className = 'btn btn-info editAction';
+    editButton.innerHTML = "Edit";
+    editButton.value = element.name;
 
     name.innerHTML = element.name;
     description.innerHTML = "<b>Description: </b>"+element.description;
@@ -53,8 +58,10 @@ const getCharacters = async () => {
     newElem.appendChild(nationality);
     newElem.appendChild(race);
     newElem.appendChild(deleteButton);
+    newElem.appendChild(editButton);
   });
   deleteFunc();
+  editFunction();
 }
 OneCharacterButton.addEventListener('click', getCharacters);
 
@@ -74,4 +81,58 @@ function deleteElement(characterName){
     method: 'DELETE'
   });
   setTimeout(getCharacters,500);
+}
+
+
+function editFunction(){
+  const editButton = document.getElementsByClassName('btn btn-info editAction');
+  for (let index = 0; index < editButton.length; index++) {
+      editButton[index].addEventListener('click', ()=>{
+          generateForm(editButton[index].value);
+          });
+    }
+}
+
+function generateForm(characterName){
+  myContainer.innerHTML = '';
+  var newName = document.createElement('input');
+  var newGender = document.createElement('input');
+  var newDesc = document.createElement('input');
+  var newNatio = document.createElement('input');
+  var newRace = document.createElement('input');
+
+  newName.placeholder = 'name';
+  newName.value = characterName;
+  newGender.placeholder = 'gender';
+  newDesc.placeholder = 'description';
+  newNatio.placeholder = 'nationality';
+  newRace.placeholder = 'race';
+
+  myContainer.appendChild(newName);
+  myContainer.appendChild(newGender);
+  myContainer.appendChild(newDesc);
+  myContainer.appendChild(newNatio);
+  myContainer.appendChild(newRace);
+
+  const submitEditButton = document.createElement('button');
+  submitEditButton.innerHTML = 'Edit';
+  submitEditButton.id = 'submitEditButton';
+  myContainer.appendChild(submitEditButton);
+
+  submitEditButton.addEventListener('click', () => {
+    editCharacters(characterName, newName, newGender, newDesc, newRace, newNatio);
+});
+}
+
+function editCharacters(characterName, newName, newGender, newDesc, newRace, newNatio){
+  fetch('https://witcher-project.herokuapp.com/admin/change/characters/' + characterName, {
+  method: 'POST',
+  body: JSON.stringify({name: newName.value,
+      description: newDesc.value,
+      race: newRace.value,
+      nationality: newNatio.value,
+      gender: newGender.value
+      })
+});
+setTimeout(getCharacters,500);
 }
